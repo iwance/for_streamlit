@@ -21,6 +21,13 @@ def upload_file():
     return uploaded_file
 #uploaded_file = st.file_uploader("Загрузите файл", type='xlsx')
 
+dfs = pd.DataFrame()
+df_y = pd.DataFrame()
+df_oz = pd.DataFrame()
+df_seb = pd.DataFrame()
+df_data = pd.DataFrame()
+df_wb = pd.DataFrame()
+
 uploaded_file = upload_file()
 
 if uploaded_file is not None:
@@ -122,7 +129,7 @@ elif len(df_data) == 7:
     
     # Кнопка скачивания
     st.download_button(
-        label="Скачать результат в Excel",
+        label="Скачать результат Юнит ВБ в Excel",
         data=excel_data,
         file_name='unit_wb_result.xlsx',
         mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
@@ -178,7 +185,7 @@ elif len(df_data) == 7:
     
     # Кнопка скачивания
     st.download_button(
-        label="Скачать результат в CSV",
+        label="Скачать результат Юнит Озон в CSV",
         data=csv_oz,
         file_name='unit_oz_result.csv',
         mime='text/csv'
@@ -194,7 +201,7 @@ elif len(df_data) == 7:
     
     # Кнопка скачивания
     st.download_button(
-        label="Скачать результат в Excel",
+        label="Скачать результат Юнит Озон в Excel",
         data=excel_data_oz,
         file_name='unit_oz_result.xlsx',
         mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
@@ -257,7 +264,7 @@ elif len(df_data) == 7:
     csv_y = df_unit_y.to_csv(index=False).encode('utf-8')
     
     st.download_button(
-        label="Скачать результат в CSV",
+        label="Скачать результат Юнит ЯМ в CSV",
         data=csv_y,
         file_name='unit_oz_result.csv',
         mime='text/csv'
@@ -275,6 +282,6 @@ elif len(df_data) == 7:
     st.download_button(
         label="Скачать результат в Excel",
         data=excel_data_y,
-        file_name='unit_oz_result.xlsx',
+        file_name='unit_y_result.xlsx',
         mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
     )
